@@ -23,8 +23,15 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-ink-2 via-ink to-ink text-white">
-        <div className="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
+      <section className="relative overflow-hidden bg-ink text-white">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/masjidil-haram.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
+        <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 md:py-24">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
             Semua travel berizin resmi Kemenag

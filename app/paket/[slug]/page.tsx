@@ -7,6 +7,7 @@ import BookingBox from "@/components/BookingBox";
 import MobileBookingBar from "@/components/MobileBookingBar";
 import { getPackage, packages } from "@/data/packages";
 import { formatDate, formatIDR } from "@/lib/format";
+import { packageImage, packageGallery } from "@/lib/images";
 
 export function generateStaticParams() {
   return packages.map((p) => ({ slug: p.slug }));
@@ -75,18 +76,27 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
           </div>
         </div>
 
-        {/* Gallery placeholder */}
+        {/* Gallery */}
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {[
-            ["Masjidil Haram", "from-ink to-ink-2"],
-            ["Masjid Nabawi", "from-ink to-ink"],
-            [`Hotel ★${pkg.hotelMakkahStars}`, "from-primary to-ink"],
-          ].map(([label, grad]) => (
+            { label: pkg.category, src: packageImage(pkg.id) },
+            ...packageGallery(pkg.hotelMakkahStars).slice(1),
+          ].map((g) => (
             <div
-              key={label}
-              className={`flex h-40 items-end rounded-2xl bg-gradient-to-br ${grad} p-4 text-sm font-medium text-white/90`}
+              key={g.label}
+              className="relative h-44 overflow-hidden rounded-2xl"
             >
-              {label}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={g.src}
+                alt={g.label}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <span className="absolute bottom-3 left-4 text-sm font-medium text-white drop-shadow">
+                {g.label}
+              </span>
             </div>
           ))}
         </div>

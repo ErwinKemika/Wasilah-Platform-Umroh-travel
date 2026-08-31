@@ -48,7 +48,7 @@ export default function SiteFooter() {
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 sm:px-6 py-5 text-xs text-white/50">
           © {new Date().getFullYear()} Wasilah. Prototipe — seluruh data paket,
-          harga, dan travel di halaman ini masih contoh.
+          harga, dan travel di halaman ini masih contoh. Foto: Wikimedia Commons.
         </p>
       </div>
     </footer>

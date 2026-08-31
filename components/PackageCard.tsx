@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { UmrohPackage } from "@/data/packages";
 import { formatIDR, formatDate, compactIDR } from "@/lib/format";
+import { packageImage } from "@/lib/images";
 
 export default function PackageCard({ pkg }: { pkg: UmrohPackage }) {
   const almostFull = pkg.seatsLeft <= 8;
@@ -16,16 +17,25 @@ export default function PackageCard({ pkg }: { pkg: UmrohPackage }) {
         </span>
       )}
 
-      <div className="relative h-40 overflow-hidden bg-gradient-to-br from-ink to-ink-2">
-        <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_20%_20%,white_1px,transparent_1px)] [background-size:22px_22px]" />
+      <div className="relative h-44 overflow-hidden bg-ink">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={packageImage(pkg.id)}
+          alt={pkg.title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
         <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
           <div>
-            <p className="text-xs uppercase tracking-wider text-white/70">
+            <p className="text-xs uppercase tracking-wider text-white/80">
               {pkg.category} · {pkg.durationDays} hari
             </p>
-            <h3 className="mt-1 text-lg font-bold leading-tight">{pkg.title}</h3>
+            <h3 className="mt-1 text-lg font-bold leading-tight drop-shadow">
+              {pkg.title}
+            </h3>
           </div>
-          <span className="flex shrink-0 items-center gap-1 rounded-lg bg-white/15 px-2 py-1 text-sm font-semibold backdrop-blur">
+          <span className="flex shrink-0 items-center gap-1 rounded-lg bg-black/45 px-2 py-1 text-sm font-semibold backdrop-blur">
             ★ {pkg.rating.toFixed(1)}
           </span>
         </div>
