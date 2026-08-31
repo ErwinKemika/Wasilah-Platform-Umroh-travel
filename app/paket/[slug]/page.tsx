@@ -60,7 +60,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
                 </span>
               )}
               {pkg.verified && (
-                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                <span className="rounded-full bg-emerald-50 dark:bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
                   ✓ Travel Terverifikasi
                 </span>
               )}
@@ -161,7 +161,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
             <Section title="Termasuk & Tidak Termasuk">
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
-                  <p className="mb-2 text-sm font-semibold text-emerald-700">
+                  <p className="mb-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
                     Sudah termasuk
                   </p>
                   <ul className="space-y-1.5">
@@ -174,13 +174,13 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
                   </ul>
                 </div>
                 <div>
-                  <p className="mb-2 text-sm font-semibold text-rose-600">
+                  <p className="mb-2 text-sm font-semibold text-rose-600 dark:text-rose-400">
                     Belum termasuk
                   </p>
                   <ul className="space-y-1.5">
                     {pkg.excluded.map((i) => (
                       <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                        <span className="text-rose-500">✕</span>
+                        <span className="text-rose-500 dark:text-rose-400">✕</span>
                         {i}
                       </li>
                     ))}

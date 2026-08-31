@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-
   --background: #f8f8f8;
   --foreground: #1a1a1a;
   --card: #ffffff;
@@ -28,6 +26,32 @@
 
   --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
+
+  color-scheme: light;
+}
+
+:root.dark {
+  --background: #090909;
+  --foreground: #fbfaf7;
+  --card: #121212;
+  --card-foreground: #fbfaf7;
+  --primary: #ffd81f;
+  --primary-foreground: #090909;
+  --secondary: #1b1b1b;
+  --secondary-foreground: #fafafa;
+  --muted: #1b1b1b;
+  --muted-foreground: #9a9a9a;
+  --accent: #2a2410;
+  --accent-foreground: #ffe9a8;
+  --border: #242424;
+  --input: #242424;
+  --ring: #ffd81f;
+  --destructive: #e05a4c;
+
+  --ink: #0a0a0a;
+  --ink-2: #000000;
+
+  color-scheme: dark;
 }
 
 html {

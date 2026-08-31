@@ -39,7 +39,7 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
               className={`flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2 text-sm transition ${
                 room === r
                   ? "border-primary bg-accent"
-                  : "border-border bg-white hover:border-neutral-400"
+                  : "border-border bg-background hover:border-neutral-400"
               }`}
             >
               <span className="flex items-center gap-2">
@@ -65,7 +65,7 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setPax((p) => Math.max(1, p - 1))}
-            className="h-8 w-8 rounded-lg border border-border bg-white text-lg leading-none text-muted-foreground hover:border-neutral-400"
+            className="h-8 w-8 rounded-lg border border-border bg-background text-lg leading-none text-muted-foreground hover:border-neutral-400"
             aria-label="Kurangi"
           >
             −
@@ -73,7 +73,7 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
           <span className="w-6 text-center font-semibold">{pax}</span>
           <button
             onClick={() => setPax((p) => Math.min(20, p + 1))}
-            className="h-8 w-8 rounded-lg border border-border bg-white text-lg leading-none text-muted-foreground hover:border-neutral-400"
+            className="h-8 w-8 rounded-lg border border-border bg-background text-lg leading-none text-muted-foreground hover:border-neutral-400"
             aria-label="Tambah"
           >
             +

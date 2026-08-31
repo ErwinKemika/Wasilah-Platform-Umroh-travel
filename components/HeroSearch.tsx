@@ -26,7 +26,7 @@ export default function HeroSearch() {
   }
 
   return (
-    <div className="mt-10 grid gap-3 rounded-2xl bg-white/95 p-4 text-foreground shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-10 grid gap-3 rounded-2xl bg-card p-4 text-card-foreground shadow-xl sm:grid-cols-2 lg:grid-cols-4">
       <Select
         label="Jenis"
         value={type}
@@ -84,7 +84,7 @@ function Select({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
+        className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>

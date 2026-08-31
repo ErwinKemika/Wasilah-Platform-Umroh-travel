@@ -45,7 +45,7 @@ export default function PackageCard({ pkg }: { pkg: UmrohPackage }) {
         <div className="flex items-center gap-2">
           <p className="text-sm font-medium text-foreground">{pkg.travelName}</p>
           {pkg.verified && (
-            <span className="rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
+            <span className="rounded bg-emerald-50 dark:bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:text-emerald-400">
               ✓ Terverifikasi
             </span>
           )}
@@ -96,7 +96,7 @@ export default function PackageCard({ pkg }: { pkg: UmrohPackage }) {
             </p>
             <p
               className={`mt-1 text-xs font-medium ${
-                almostFull ? "text-rose-500" : "text-muted-foreground"
+                almostFull ? "text-rose-500 dark:text-rose-400" : "text-muted-foreground"
               }`}
             >
               Sisa {pkg.seatsLeft} dari {pkg.quota} kursi

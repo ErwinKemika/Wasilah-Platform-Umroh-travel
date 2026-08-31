@@ -207,7 +207,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 <button
                   type="button"
                   onClick={() => setPaxCount(pilgrims.length - 1)}
-                  className="h-9 w-9 rounded-lg border border-border bg-white text-lg text-muted-foreground"
+                  className="h-9 w-9 rounded-lg border border-border bg-background text-lg text-muted-foreground"
                 >
                   −
                 </button>
@@ -217,7 +217,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 <button
                   type="button"
                   onClick={() => setPaxCount(pilgrims.length + 1)}
-                  className="h-9 w-9 rounded-lg border border-border bg-white text-lg text-muted-foreground"
+                  className="h-9 w-9 rounded-lg border border-border bg-background text-lg text-muted-foreground"
                 >
                   +
                 </button>
@@ -232,7 +232,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
             {pilgrims.map((p, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-border bg-white p-4"
+                className="rounded-xl border border-border bg-background p-4"
               >
                 <p className="mb-3 text-sm font-semibold text-foreground">
                   Jamaah {i + 1}
@@ -268,7 +268,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                           className={`rounded-lg border px-4 py-2 text-sm font-medium ${
                             p.gender === g
                               ? "border-primary bg-accent text-foreground"
-                              : "border-border bg-white text-muted-foreground"
+                              : "border-border bg-background text-muted-foreground"
                           }`}
                         >
                           {g === "L" ? "Laki-laki" : "Perempuan"}
@@ -289,7 +289,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
         {/* Step 3 */}
         {step === 2 && (
           <div className="space-y-5">
-            <div className="rounded-xl border border-border bg-white p-4 text-sm">
+            <div className="rounded-xl border border-border bg-background p-4 text-sm">
               <Row k="Paket" v={pkg.title} />
               <Row k="Travel" v={pkg.travelName} />
               <Row k="Keberangkatan" v={pkg.embarkasi} />
@@ -334,7 +334,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
         )}
 
         {error && (
-          <p className="mt-4 rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">
+          <p className="mt-4 rounded-lg bg-rose-50 dark:bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-300">
             {error}
           </p>
         )}
@@ -418,7 +418,7 @@ function PayOption({
       className={`block w-full rounded-lg border px-4 py-3 text-left transition ${
         active
           ? "border-primary bg-accent"
-          : "border-border bg-white hover:border-neutral-400"
+          : "border-border bg-background hover:border-neutral-400"
       }`}
     >
       <p className="text-sm font-semibold text-foreground">{title}</p>

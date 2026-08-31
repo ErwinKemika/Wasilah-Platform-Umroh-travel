@@ -60,7 +60,7 @@ export default function ConfirmationView() {
   return (
     <div>
       <div className="flex flex-col items-center text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl text-emerald-700">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-2xl text-emerald-700 dark:text-emerald-400">
           ✓
         </div>
         <h1 className="mt-4 text-2xl font-bold text-foreground">
@@ -91,7 +91,7 @@ export default function ConfirmationView() {
         </dl>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-border bg-white p-6">
+      <div className="mt-6 rounded-2xl border border-border bg-background p-6">
         <p className="font-semibold text-foreground">Langkah selanjutnya</p>
         <ol className="mt-3 space-y-2 text-sm text-muted-foreground">
           <li>1. Transfer DP ke rekening bersama Wasilah (instruksi dikirim via email).</li>

@@ -113,7 +113,7 @@ export default function PackageBrowser() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Nama paket / travel / kota"
-            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
+            className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           />
         </FilterGroup>
 
@@ -133,7 +133,7 @@ export default function PackageBrowser() {
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
-            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
+            className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           >
             <option value="">Kapan saja</option>
             {monthOptions.map((m) => (
@@ -148,7 +148,7 @@ export default function PackageBrowser() {
           <select
             value={embarkasi}
             onChange={(e) => setEmbarkasi(e.target.value)}
-            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
+            className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           >
             <option value="">Semua kota</option>
             {embarkasiList.map((c) => (
@@ -168,7 +168,7 @@ export default function PackageBrowser() {
                 className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
                   maxPrice === String(p)
                     ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-white text-muted-foreground hover:border-neutral-400"
+                    : "border-border bg-background text-muted-foreground hover:border-neutral-400"
                 }`}
               >
                 ≤ {compactIDR(p)}
@@ -203,7 +203,7 @@ export default function PackageBrowser() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
+              className="rounded-lg border border-border bg-background px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
             >
               <option value="recommended">Rekomendasi</option>
               <option value="price-asc">Harga termurah</option>
@@ -279,7 +279,7 @@ function Segmented({
           } ${
             value === o.value
               ? "bg-primary text-primary-foreground"
-              : "bg-white text-muted-foreground hover:bg-accent"
+              : "bg-background text-muted-foreground hover:bg-accent"
           }`}
         >
           {o.label}
