@@ -25,11 +25,11 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-ink-2 via-ink to-ink text-white">
         <div className="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 md:py-24">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
             Semua travel berizin resmi Kemenag
           </p>
-          <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-5xl">
+          <h1 className="max-w-2xl text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             Booking Umroh &amp; Haji jadi mudah, transparan, dan terpercaya
           </h1>
           <p className="mt-5 max-w-xl text-base text-white/80 md:text-lg">
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Paket */}
-      <section id="paket" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <section id="paket" className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -82,8 +82,8 @@ export default function Home() {
       </section>
 
       {/* Keunggulan */}
-      <section id="keunggulan" className="bg-card py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="keunggulan" className="bg-card py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="mb-10 text-2xl font-bold text-foreground md:text-3xl">
             Kenapa memesan lewat Wasilah?
           </h2>
@@ -118,19 +118,19 @@ export default function Home() {
       </section>
 
       {/* Kalkulator */}
-      <section id="kalkulator" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <section id="kalkulator" className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <SavingsCalculator />
       </section>
 
       {/* Testimoni */}
-      <section id="testimoni" className="bg-card py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="testimoni" className="bg-card py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Testimonials />
         </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <section id="faq" className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <Faq />
       </section>
 

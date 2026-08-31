@@ -19,7 +19,7 @@ export default function DaftarPage({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-6 py-10">
+      <main className="mx-auto max-w-3xl px-4 sm:px-6 py-10">
         <nav className="text-sm text-muted-foreground">
           <Link href={`/paket/${pkg.slug}`} className="hover:text-foreground">
             ← Kembali ke detail paket

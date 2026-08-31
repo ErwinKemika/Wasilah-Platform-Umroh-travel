@@ -30,6 +30,7 @@ export default function PackageBrowser() {
 
   const [results, setResults] = useState<UmrohPackage[]>(allPackages);
   const [loading, setLoading] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const query = useMemo(() => {
     const sp = new URLSearchParams();
@@ -77,27 +78,42 @@ export default function PackageBrowser() {
   }
 
   return (
-    <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
+    <div className="mt-6 grid gap-4 lg:mt-8 lg:grid-cols-[260px_1fr] lg:gap-8">
       {/* Filter panel */}
-      <aside className="h-fit rounded-2xl border border-border bg-card p-5 lg:sticky lg:top-24">
+      <aside className="h-fit rounded-2xl border border-border bg-card p-4 sm:p-5 lg:sticky lg:top-24">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold text-foreground">Filter</h2>
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((v) => !v)}
+            className="flex items-center gap-2 font-semibold text-foreground lg:pointer-events-none"
+          >
+            Filter
+            {activeFilters > 0 && (
+              <span className="rounded-full bg-primary px-1.5 text-xs font-bold text-primary-foreground">
+                {activeFilters}
+              </span>
+            )}
+            <span className="text-muted-foreground lg:hidden">
+              {filtersOpen ? "▲" : "▼"}
+            </span>
+          </button>
           {activeFilters > 0 && (
             <button
               onClick={reset}
               className="text-xs font-medium text-foreground hover:underline"
             >
-              Reset ({activeFilters})
+              Reset
             </button>
           )}
         </div>
 
+        <div className={`${filtersOpen ? "block" : "hidden"} lg:block`}>
         <FilterGroup label="Cari">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Nama paket / travel / kota"
-            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           />
         </FilterGroup>
 
@@ -117,7 +133,7 @@ export default function PackageBrowser() {
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
-            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           >
             <option value="">Kapan saja</option>
             {monthOptions.map((m) => (
@@ -132,7 +148,7 @@ export default function PackageBrowser() {
           <select
             value={embarkasi}
             onChange={(e) => setEmbarkasi(e.target.value)}
-            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
           >
             <option value="">Semua kota</option>
             {embarkasiList.map((c) => (
@@ -173,6 +189,7 @@ export default function PackageBrowser() {
             ]}
           />
         </FilterGroup>
+        </div>
       </aside>
 
       {/* Results */}
@@ -186,7 +203,7 @@ export default function PackageBrowser() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
+              className="rounded-lg border border-border bg-white px-3 py-2.5 text-base outline-none focus:border-ring sm:text-sm"
             >
               <option value="recommended">Rekomendasi</option>
               <option value="price-asc">Harga termurah</option>

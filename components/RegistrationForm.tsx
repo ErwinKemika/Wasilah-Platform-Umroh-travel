@@ -121,11 +121,11 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
   return (
     <div className="mt-8">
       {/* Stepper */}
-      <ol className="mb-8 flex items-center gap-2 text-sm">
+      <ol className="mb-6 flex items-center gap-2 text-sm sm:mb-8">
         {steps.map((label, i) => (
           <li key={label} className="flex items-center gap-2">
             <span
-              className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold ${
+              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
                 i <= step
                   ? "bg-primary text-primary-foreground"
                   : "bg-border text-muted-foreground"
@@ -134,20 +134,22 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
               {i + 1}
             </span>
             <span
-              className={
-                i === step ? "font-semibold text-foreground" : "text-muted-foreground"
-              }
+              className={`${
+                i === step
+                  ? "font-semibold text-foreground"
+                  : "text-muted-foreground"
+              } ${i === step ? "inline" : "hidden sm:inline"}`}
             >
               {label}
             </span>
             {i < steps.length - 1 && (
-              <span className="mx-1 h-px w-6 bg-border" />
+              <span className="h-px w-4 bg-border sm:mx-1 sm:w-6" />
             )}
           </li>
         ))}
       </ol>
 
-      <div className="rounded-2xl border border-border bg-card p-6">
+      <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
         {/* Step 1 */}
         {step === 0 && (
           <div className="space-y-4">

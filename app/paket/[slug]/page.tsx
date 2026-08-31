@@ -4,6 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BookingBox from "@/components/BookingBox";
+import MobileBookingBar from "@/components/MobileBookingBar";
 import { getPackage, packages } from "@/data/packages";
 import { formatDate, formatIDR } from "@/lib/format";
 
@@ -33,7 +34,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
     <div className="min-h-screen">
       <SiteHeader />
 
-      <main className="mx-auto max-w-6xl px-6 py-8">
+      <main className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 lg:pb-8">
         <nav className="text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground">
             Beranda
@@ -100,7 +101,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
           ))}
         </dl>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px]">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_360px] lg:gap-10">
           {/* Left column */}
           <div className="space-y-10">
             <Section title="Rencana Perjalanan">
@@ -210,17 +211,20 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
             </Section>
           </div>
 
-          {/* Right column — booking box */}
-          <div>
+          {/* Right column — booking box (tersembunyi di mobile, diganti bar bawah) */}
+          <div className="hidden lg:block">
             <BookingBox pkg={pkg} />
           </div>
         </div>
       </main>
 
       <SiteFooter />
-      <WhatsAppButton
-        message={`Assalamualaikum, saya tertarik dengan paket "${pkg.title}" dari ${pkg.travelName}. Boleh minta info lebih lanjut?`}
-      />
+      <div className="hidden lg:block">
+        <WhatsAppButton
+          message={`Assalamualaikum, saya tertarik dengan paket "${pkg.title}" dari ${pkg.travelName}. Boleh minta info lebih lanjut?`}
+        />
+      </div>
+      <MobileBookingBar pkg={pkg} />
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function PaketPage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-6xl px-6 py-10">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
         <h1 className="text-2xl font-bold text-foreground md:text-3xl">
           Paket Umroh &amp; Haji
         </h1>
