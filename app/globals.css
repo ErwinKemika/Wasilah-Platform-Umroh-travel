@@ -12,5 +12,12 @@ html {
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 antialiased;
+  @apply text-stone-800 antialiased;
+  background-color: #f4efe2;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-linen-border bg-white px-3 py-2 text-sm outline-none transition focus:border-wasilah-500;
+  }
 }
