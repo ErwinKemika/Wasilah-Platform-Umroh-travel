@@ -31,15 +31,18 @@ export default function Hero() {
         <img
           src="/images/masjidil-haram.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
-        {/* lelehkan bagian bawah hero ke warna latar halaman */}
+        {/* scrim rata supaya foto tetap terlihat tapi teks putih tetap kebaca */}
+        <div className="absolute inset-0 bg-black/55" />
+        {/* lebih gelap di area teks & kotak pencarian */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        {/* fade tipis di tepi bawah supaya menyatu ke section berikutnya */}
         <div
           aria-hidden
-          className="absolute inset-0 [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_82%)]"
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background"
         />
-        <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
+        <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
 
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 md:py-28">
           <AnimatedGroup variants={reveal}>
