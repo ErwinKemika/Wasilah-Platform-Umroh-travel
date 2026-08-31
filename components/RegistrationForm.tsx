@@ -127,27 +127,27 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
             <span
               className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold ${
                 i <= step
-                  ? "bg-wasilah-600 text-white"
-                  : "bg-linen-border text-stone-500"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-border text-muted-foreground"
               }`}
             >
               {i + 1}
             </span>
             <span
               className={
-                i === step ? "font-semibold text-stone-800" : "text-stone-400"
+                i === step ? "font-semibold text-foreground" : "text-muted-foreground"
               }
             >
               {label}
             </span>
             {i < steps.length - 1 && (
-              <span className="mx-1 h-px w-6 bg-linen-border" />
+              <span className="mx-1 h-px w-6 bg-border" />
             )}
           </li>
         ))}
       </ol>
 
-      <div className="rounded-2xl border border-linen-border bg-linen-card p-6">
+      <div className="rounded-2xl border border-border bg-card p-6">
         {/* Step 1 */}
         {step === 0 && (
           <div className="space-y-4">
@@ -205,7 +205,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 <button
                   type="button"
                   onClick={() => setPaxCount(pilgrims.length - 1)}
-                  className="h-9 w-9 rounded-lg border border-linen-border bg-white text-lg text-stone-600"
+                  className="h-9 w-9 rounded-lg border border-border bg-white text-lg text-muted-foreground"
                 >
                   −
                 </button>
@@ -215,7 +215,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 <button
                   type="button"
                   onClick={() => setPaxCount(pilgrims.length + 1)}
-                  className="h-9 w-9 rounded-lg border border-linen-border bg-white text-lg text-stone-600"
+                  className="h-9 w-9 rounded-lg border border-border bg-white text-lg text-muted-foreground"
                 >
                   +
                 </button>
@@ -230,9 +230,9 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
             {pilgrims.map((p, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-linen-border bg-white p-4"
+                className="rounded-xl border border-border bg-white p-4"
               >
-                <p className="mb-3 text-sm font-semibold text-stone-700">
+                <p className="mb-3 text-sm font-semibold text-foreground">
                   Jamaah {i + 1}
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -265,8 +265,8 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                           onClick={() => updatePilgrim(i, { gender: g })}
                           className={`rounded-lg border px-4 py-2 text-sm font-medium ${
                             p.gender === g
-                              ? "border-wasilah-600 bg-wasilah-50 text-wasilah-800"
-                              : "border-linen-border bg-white text-stone-600"
+                              ? "border-primary bg-accent text-foreground"
+                              : "border-border bg-white text-muted-foreground"
                           }`}
                         >
                           {g === "L" ? "Laki-laki" : "Perempuan"}
@@ -277,7 +277,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 </div>
               </div>
             ))}
-            <p className="text-xs text-stone-400">
+            <p className="text-xs text-muted-foreground">
               Unggah paspor & dokumen pendukung akan diminta setelah DP
               dikonfirmasi.
             </p>
@@ -287,7 +287,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
         {/* Step 3 */}
         {step === 2 && (
           <div className="space-y-5">
-            <div className="rounded-xl border border-linen-border bg-white p-4 text-sm">
+            <div className="rounded-xl border border-border bg-white p-4 text-sm">
               <Row k="Paket" v={pkg.title} />
               <Row k="Travel" v={pkg.travelName} />
               <Row k="Keberangkatan" v={pkg.embarkasi} />
@@ -297,7 +297,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
                 k="Harga per jamaah"
                 v={formatIDR(pricePerPax)}
               />
-              <div className="my-2 border-t border-linen-border" />
+              <div className="my-2 border-t border-border" />
               <Row k="Estimasi total" v={formatIDR(total)} bold />
             </div>
 
@@ -318,12 +318,12 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
               </div>
             </Field>
 
-            <div className="rounded-xl bg-wasilah-50 p-4 text-sm">
-              <div className="flex justify-between font-semibold text-wasilah-900">
+            <div className="rounded-xl bg-accent p-4 text-sm">
+              <div className="flex justify-between font-semibold text-foreground">
                 <span>Total bayar sekarang</span>
                 <span>{formatIDR(payNow)}</span>
               </div>
-              <p className="mt-1 text-xs text-wasilah-800/70">
+              <p className="mt-1 text-xs text-muted-foreground">
                 Dana ditahan Wasilah (rekening bersama) hingga layanan travel
                 berjalan.
               </p>
@@ -342,7 +342,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
             type="button"
             onClick={() => setStep((s) => Math.max(0, s - 1))}
             disabled={step === 0}
-            className="rounded-xl px-4 py-2.5 text-sm font-semibold text-stone-500 disabled:opacity-0"
+            className="rounded-xl px-4 py-2.5 text-sm font-semibold text-muted-foreground disabled:opacity-0"
           >
             ← Kembali
           </button>
@@ -350,7 +350,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
             <button
               type="button"
               onClick={next}
-              className="rounded-xl bg-wasilah-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-wasilah-700"
+              className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:brightness-95"
             >
               Lanjut
             </button>
@@ -359,7 +359,7 @@ export default function RegistrationForm({ pkg }: { pkg: UmrohPackage }) {
               type="button"
               onClick={submit}
               disabled={submitting}
-              className="rounded-xl bg-wasilah-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-wasilah-700 disabled:opacity-60"
+              className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:brightness-95 disabled:opacity-60"
             >
               {submitting ? "Memproses…" : "Kirim Pendaftaran"}
             </button>
@@ -379,7 +379,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-stone-400">
+      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         {label}
       </span>
       {children}
@@ -390,8 +390,8 @@ function Field({
 function Row({ k, v, bold }: { k: string; v: string; bold?: boolean }) {
   return (
     <div className="flex justify-between py-1">
-      <span className="text-stone-500">{k}</span>
-      <span className={bold ? "font-bold text-stone-900" : "text-stone-700"}>
+      <span className="text-muted-foreground">{k}</span>
+      <span className={bold ? "font-bold text-foreground" : "text-foreground"}>
         {v}
       </span>
     </div>
@@ -415,12 +415,12 @@ function PayOption({
       onClick={onClick}
       className={`block w-full rounded-lg border px-4 py-3 text-left transition ${
         active
-          ? "border-wasilah-600 bg-wasilah-50"
-          : "border-linen-border bg-white hover:border-wasilah-400"
+          ? "border-primary bg-accent"
+          : "border-border bg-white hover:border-neutral-400"
       }`}
     >
-      <p className="text-sm font-semibold text-stone-800">{title}</p>
-      <p className="text-xs text-stone-500">{desc}</p>
+      <p className="text-sm font-semibold text-foreground">{title}</p>
+      <p className="text-xs text-muted-foreground">{desc}</p>
     </button>
   );
 }

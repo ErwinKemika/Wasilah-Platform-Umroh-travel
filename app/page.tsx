@@ -23,7 +23,7 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-wasilah-900 via-wasilah-700 to-wasilah-600 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-b from-ink-2 via-ink to-ink text-white">
         <div className="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_15%_25%,white_1.5px,transparent_1.5px)] [background-size:34px_34px]" />
         <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-24">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
@@ -59,16 +59,16 @@ export default function Home() {
       <section id="paket" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-stone-900 md:text-3xl">
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
               Paket keberangkatan pilihan
             </h2>
-            <p className="mt-2 text-stone-500">
+            <p className="mt-2 text-muted-foreground">
               Harga sudah termasuk tiket, hotel, visa, dan bimbingan ibadah.
             </p>
           </div>
           <Link
             href="/paket"
-            className="rounded-xl border border-wasilah-600 px-4 py-2.5 text-sm font-semibold text-wasilah-700 transition hover:bg-wasilah-50"
+            className="rounded-xl border border-primary px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-accent"
           >
             Lihat semua paket →
           </Link>
@@ -82,9 +82,9 @@ export default function Home() {
       </section>
 
       {/* Keunggulan */}
-      <section id="keunggulan" className="bg-linen-card py-16 md:py-20">
+      <section id="keunggulan" className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="mb-10 text-2xl font-bold text-stone-900 md:text-3xl">
+          <h2 className="mb-10 text-2xl font-bold text-foreground md:text-3xl">
             Kenapa memesan lewat Wasilah?
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
@@ -104,13 +104,13 @@ export default function Home() {
             ].map((f) => (
               <div
                 key={f.title}
-                className="rounded-2xl border border-linen-border bg-linen/40 p-6"
+                className="rounded-2xl border border-border bg-secondary p-6"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-wasilah-50 text-wasilah-600">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-foreground">
                   ✓
                 </div>
-                <h3 className="font-semibold text-stone-900">{f.title}</h3>
-                <p className="mt-2 text-sm text-stone-500">{f.desc}</p>
+                <h3 className="font-semibold text-foreground">{f.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -123,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* Testimoni */}
-      <section id="testimoni" className="bg-linen-card py-16 md:py-20">
+      <section id="testimoni" className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Testimonials />
         </div>

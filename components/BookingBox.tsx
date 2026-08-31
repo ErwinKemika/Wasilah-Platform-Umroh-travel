@@ -21,15 +21,15 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
   const dpTotal = pkg.dpIDR * pax;
 
   return (
-    <div className="rounded-2xl border border-linen-border bg-linen-card p-5 lg:sticky lg:top-24">
-      <p className="text-xs text-stone-400">Harga mulai dari</p>
-      <p className="text-2xl font-bold text-stone-900">
+    <div className="rounded-2xl border border-border bg-card p-5 lg:sticky lg:top-24">
+      <p className="text-xs text-muted-foreground">Harga mulai dari</p>
+      <p className="text-2xl font-bold text-foreground">
         {formatIDR(pkg.priceIDR)}
-        <span className="text-sm font-normal text-stone-400"> / jamaah</span>
+        <span className="text-sm font-normal text-muted-foreground"> / jamaah</span>
       </p>
 
       <div className="mt-4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Tipe kamar
         </p>
         <div className="space-y-2">
@@ -38,8 +38,8 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
               key={r}
               className={`flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2 text-sm transition ${
                 room === r
-                  ? "border-wasilah-600 bg-wasilah-50"
-                  : "border-linen-border bg-white hover:border-wasilah-400"
+                  ? "border-primary bg-accent"
+                  : "border-border bg-white hover:border-neutral-400"
               }`}
             >
               <span className="flex items-center gap-2">
@@ -48,11 +48,11 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
                   name="room"
                   checked={room === r}
                   onChange={() => setRoom(r)}
-                  className="accent-wasilah-600"
+                  className="accent-primary"
                 />
                 {roomLabels[r]}
               </span>
-              <span className="font-semibold text-stone-700">
+              <span className="font-semibold text-foreground">
                 {formatIDR(pkg.roomPricing[r])}
               </span>
             </label>
@@ -61,11 +61,11 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-sm font-semibold text-stone-600">Jumlah jamaah</p>
+        <p className="text-sm font-semibold text-muted-foreground">Jumlah jamaah</p>
         <div className="flex items-center gap-3">
           <button
             onClick={() => setPax((p) => Math.max(1, p - 1))}
-            className="h-8 w-8 rounded-lg border border-linen-border bg-white text-lg leading-none text-stone-600 hover:border-wasilah-400"
+            className="h-8 w-8 rounded-lg border border-border bg-white text-lg leading-none text-muted-foreground hover:border-neutral-400"
             aria-label="Kurangi"
           >
             −
@@ -73,7 +73,7 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
           <span className="w-6 text-center font-semibold">{pax}</span>
           <button
             onClick={() => setPax((p) => Math.min(20, p + 1))}
-            className="h-8 w-8 rounded-lg border border-linen-border bg-white text-lg leading-none text-stone-600 hover:border-wasilah-400"
+            className="h-8 w-8 rounded-lg border border-border bg-white text-lg leading-none text-muted-foreground hover:border-neutral-400"
             aria-label="Tambah"
           >
             +
@@ -81,18 +81,18 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
         </div>
       </div>
 
-      <dl className="mt-4 space-y-1.5 border-t border-linen-border pt-4 text-sm">
-        <div className="flex justify-between text-stone-500">
+      <dl className="mt-4 space-y-1.5 border-t border-border pt-4 text-sm">
+        <div className="flex justify-between text-muted-foreground">
           <dt>
             {formatIDR(pricePerPax)} × {pax}
           </dt>
           <dd>{formatIDR(total)}</dd>
         </div>
-        <div className="flex justify-between font-semibold text-stone-800">
+        <div className="flex justify-between font-semibold text-foreground">
           <dt>Estimasi total</dt>
           <dd>{formatIDR(total)}</dd>
         </div>
-        <div className="flex justify-between text-wasilah-700">
+        <div className="flex justify-between text-foreground">
           <dt>Bayar sekarang (DP)</dt>
           <dd className="font-semibold">{formatIDR(dpTotal)}</dd>
         </div>
@@ -102,7 +102,7 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
         onClick={() =>
           router.push(`/paket/${pkg.slug}/daftar?room=${room}&pax=${pax}`)
         }
-        className="mt-4 w-full rounded-xl bg-wasilah-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-wasilah-700"
+        className="mt-4 w-full rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:brightness-95"
       >
         Lanjut Daftar
       </button>
@@ -112,11 +112,11 @@ export default function BookingBox({ pkg }: { pkg: UmrohPackage }) {
         )}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-2 block w-full rounded-xl border border-wasilah-600 px-4 py-3 text-center text-sm font-semibold text-wasilah-700 transition hover:bg-wasilah-50"
+        className="mt-2 block w-full rounded-xl border border-primary px-4 py-3 text-center text-sm font-semibold text-foreground transition hover:bg-accent"
       >
         Konsultasi via WhatsApp
       </a>
-      <p className="mt-3 text-center text-xs text-stone-400">
+      <p className="mt-3 text-center text-xs text-muted-foreground">
         Kursi belum terpotong sampai pembayaran DP dikonfirmasi.
       </p>
     </div>

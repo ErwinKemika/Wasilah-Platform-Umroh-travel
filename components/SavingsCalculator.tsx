@@ -26,19 +26,19 @@ export default function SavingsCalculator() {
     .slice(0, 3);
 
   return (
-    <div className="grid gap-8 rounded-3xl border border-linen-border bg-linen-card p-6 md:grid-cols-2 md:p-10">
+    <div className="grid gap-8 rounded-3xl border border-border bg-card p-6 md:grid-cols-2 md:p-10">
       <div>
-        <h2 className="text-2xl font-bold text-stone-900 md:text-3xl">
+        <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Kalkulator Tabungan Umroh
         </h2>
-        <p className="mt-2 text-stone-500">
+        <p className="mt-2 text-muted-foreground">
           Tentukan target biaya dan waktu, kami hitung berapa yang perlu Anda
           sisihkan tiap bulan.
         </p>
 
         <div className="mt-6 space-y-4">
           <label className="block">
-            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-stone-400">
+            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Target biaya paket
             </span>
             <input
@@ -48,15 +48,15 @@ export default function SavingsCalculator() {
               step={500_000}
               value={target}
               onChange={(e) => setTarget(e.target.value)}
-              className="w-full accent-wasilah-600"
+              className="w-full accent-primary"
             />
-            <span className="mt-1 block text-lg font-bold text-stone-900">
+            <span className="mt-1 block text-lg font-bold text-foreground">
               {formatIDR(Number(target))}
             </span>
           </label>
 
           <label className="block">
-            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-stone-400">
+            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Tabungan saat ini
             </span>
             <input
@@ -68,7 +68,7 @@ export default function SavingsCalculator() {
           </label>
 
           <label className="block">
-            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-stone-400">
+            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Rencana menabung: {months} bulan
             </span>
             <input
@@ -77,16 +77,16 @@ export default function SavingsCalculator() {
               max={48}
               value={months}
               onChange={(e) => setMonths(Number(e.target.value))}
-              className="w-full accent-wasilah-600"
+              className="w-full accent-primary"
             />
           </label>
         </div>
       </div>
 
-      <div className="flex flex-col justify-between rounded-2xl bg-gradient-to-br from-wasilah-700 to-wasilah-900 p-6 text-white">
+      <div className="flex flex-col justify-between rounded-2xl bg-gradient-to-br from-ink to-ink-2 p-6 text-white">
         <div>
           <p className="text-sm text-white/70">Perlu ditabung per bulan</p>
-          <p className="mt-1 text-4xl font-bold">
+          <p className="mt-1 text-4xl font-bold text-primary">
             {formatIDR(result.perMonth)}
           </p>
           <p className="mt-2 text-sm text-white/70">

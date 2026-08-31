@@ -26,7 +26,7 @@ export default function HeroSearch() {
   }
 
   return (
-    <div className="mt-10 grid gap-3 rounded-2xl bg-white/95 p-4 text-stone-800 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-10 grid gap-3 rounded-2xl bg-white/95 p-4 text-foreground shadow-xl sm:grid-cols-2 lg:grid-cols-4">
       <Select
         label="Jenis"
         value={type}
@@ -57,7 +57,7 @@ export default function HeroSearch() {
       />
       <button
         onClick={search}
-        className="rounded-xl bg-wasilah-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-wasilah-700"
+        className="rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:brightness-95"
       >
         Cari Paket
       </button>
@@ -78,13 +78,13 @@ function Select({
 }) {
   return (
     <label className="block text-left">
-      <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-stone-400">
+      <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         {label}
       </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-lg border border-linen-border bg-white px-3 py-2.5 text-sm outline-none focus:border-wasilah-500"
+        className="w-full rounded-lg border border-border bg-white px-3 py-2.5 text-sm outline-none focus:border-ring"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>

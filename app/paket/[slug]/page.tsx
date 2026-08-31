@@ -34,26 +34,26 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
       <SiteHeader />
 
       <main className="mx-auto max-w-6xl px-6 py-8">
-        <nav className="text-sm text-stone-500">
-          <Link href="/" className="hover:text-wasilah-700">
+        <nav className="text-sm text-muted-foreground">
+          <Link href="/" className="hover:text-foreground">
             Beranda
           </Link>{" "}
           /{" "}
-          <Link href="/paket" className="hover:text-wasilah-700">
+          <Link href="/paket" className="hover:text-foreground">
             Paket
           </Link>{" "}
-          / <span className="text-stone-700">{pkg.title}</span>
+          / <span className="text-foreground">{pkg.title}</span>
         </nav>
 
         {/* Header */}
         <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-wasilah-100 px-2.5 py-1 text-xs font-semibold text-wasilah-800">
+              <span className="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-foreground">
                 {pkg.type}
               </span>
               {pkg.featured && (
-                <span className="rounded-full bg-gold-500 px-2.5 py-1 text-xs font-semibold text-white">
+                <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-primary-foreground">
                   Terpopuler
                 </span>
               )}
@@ -63,12 +63,12 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
                 </span>
               )}
             </div>
-            <h1 className="mt-3 text-3xl font-bold text-stone-900">{pkg.title}</h1>
-            <p className="mt-1 text-stone-600">
+            <h1 className="mt-3 text-3xl font-bold text-foreground">{pkg.title}</h1>
+            <p className="mt-1 text-muted-foreground">
               oleh <span className="font-semibold">{pkg.travelName}</span> ·{" "}
-              <span className="text-stone-500">{pkg.licenseNo}</span>
+              <span className="text-muted-foreground">{pkg.licenseNo}</span>
             </p>
-            <p className="mt-1 text-sm text-stone-500">
+            <p className="mt-1 text-sm text-muted-foreground">
               ★ {pkg.rating.toFixed(1)} · {pkg.reviewCount} ulasan jamaah
             </p>
           </div>
@@ -77,9 +77,9 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
         {/* Gallery placeholder */}
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {[
-            ["Masjidil Haram", "from-wasilah-700 to-wasilah-900"],
-            ["Masjid Nabawi", "from-wasilah-600 to-wasilah-800"],
-            [`Hotel ★${pkg.hotelMakkahStars}`, "from-gold-500 to-wasilah-700"],
+            ["Masjidil Haram", "from-ink to-ink-2"],
+            ["Masjid Nabawi", "from-ink to-ink"],
+            [`Hotel ★${pkg.hotelMakkahStars}`, "from-primary to-ink"],
           ].map(([label, grad]) => (
             <div
               key={label}
@@ -91,11 +91,11 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
         </div>
 
         {/* Facts */}
-        <dl className="mt-6 grid grid-cols-2 gap-4 rounded-2xl border border-linen-border bg-linen-card p-5 sm:grid-cols-3 md:grid-cols-6">
+        <dl className="mt-6 grid grid-cols-2 gap-4 rounded-2xl border border-border bg-card p-5 sm:grid-cols-3 md:grid-cols-6">
           {facts.map(([k, v]) => (
             <div key={k}>
-              <dt className="text-xs text-stone-400">{k}</dt>
-              <dd className="mt-0.5 text-sm font-semibold text-stone-800">{v}</dd>
+              <dt className="text-xs text-muted-foreground">{k}</dt>
+              <dd className="mt-0.5 text-sm font-semibold text-foreground">{v}</dd>
             </div>
           ))}
         </dl>
@@ -107,12 +107,12 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
               <ol className="space-y-4">
                 {pkg.itinerary.map((d) => (
                   <li key={d.day} className="flex gap-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-wasilah-100 text-sm font-bold text-wasilah-800">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-foreground">
                       {d.day}
                     </div>
                     <div>
-                      <p className="font-semibold text-stone-800">{d.title}</p>
-                      <p className="text-sm text-stone-500">{d.detail}</p>
+                      <p className="font-semibold text-foreground">{d.title}</p>
+                      <p className="text-sm text-muted-foreground">{d.detail}</p>
                     </div>
                   </li>
                 ))}
@@ -139,8 +139,8 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
             <Section title="Fasilitas & Perlengkapan">
               <ul className="grid gap-2 sm:grid-cols-2">
                 {pkg.facilities.map((f) => (
-                  <li key={f} className="flex gap-2 text-sm text-stone-600">
-                    <span className="text-wasilah-600">◆</span>
+                  <li key={f} className="flex gap-2 text-sm text-muted-foreground">
+                    <span className="text-foreground">◆</span>
                     {f}
                   </li>
                 ))}
@@ -155,7 +155,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
                   </p>
                   <ul className="space-y-1.5">
                     {pkg.included.map((i) => (
-                      <li key={i} className="flex gap-2 text-sm text-stone-600">
+                      <li key={i} className="flex gap-2 text-sm text-muted-foreground">
                         <span className="text-emerald-600">✓</span>
                         {i}
                       </li>
@@ -168,7 +168,7 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
                   </p>
                   <ul className="space-y-1.5">
                     {pkg.excluded.map((i) => (
-                      <li key={i} className="flex gap-2 text-sm text-stone-600">
+                      <li key={i} className="flex gap-2 text-sm text-muted-foreground">
                         <span className="text-rose-500">✕</span>
                         {i}
                       </li>
@@ -181,8 +181,8 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
             <Section title="Syarat & Dokumen">
               <ul className="space-y-1.5">
                 {pkg.requirements.map((r) => (
-                  <li key={r} className="flex gap-2 text-sm text-stone-600">
-                    <span className="text-wasilah-600">•</span>
+                  <li key={r} className="flex gap-2 text-sm text-muted-foreground">
+                    <span className="text-foreground">•</span>
                     {r}
                   </li>
                 ))}
@@ -190,9 +190,9 @@ export default function PackageDetail({ params }: { params: { slug: string } }) 
             </Section>
 
             <Section title="Kebijakan Pembayaran">
-              <div className="rounded-2xl border border-linen-border bg-linen-card p-5 text-sm text-stone-600">
+              <div className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
                 <p>
-                  <span className="font-semibold text-stone-800">
+                  <span className="font-semibold text-foreground">
                     Uang muka {formatIDR(pkg.dpIDR)}
                   </span>{" "}
                   per jamaah untuk mengunci kursi.
@@ -234,7 +234,7 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="mb-4 text-xl font-bold text-stone-900">{title}</h2>
+      <h2 className="mb-4 text-xl font-bold text-foreground">{title}</h2>
       {children}
     </section>
   );
@@ -252,11 +252,11 @@ function HotelCard({
   distance: string;
 }) {
   return (
-    <div className="rounded-2xl border border-linen-border bg-linen-card p-4">
-      <p className="text-xs uppercase tracking-wide text-stone-400">{city}</p>
-      <p className="mt-1 font-semibold text-stone-800">{name}</p>
-      <p className="text-sm text-gold-500">{"★".repeat(stars)}</p>
-      <p className="mt-1 text-sm text-stone-500">{distance}</p>
+    <div className="rounded-2xl border border-border bg-card p-4">
+      <p className="text-xs uppercase tracking-wide text-muted-foreground">{city}</p>
+      <p className="mt-1 font-semibold text-foreground">{name}</p>
+      <p className="text-sm text-amber-500">{"★".repeat(stars)}</p>
+      <p className="mt-1 text-sm text-muted-foreground">{distance}</p>
     </div>
   );
 }

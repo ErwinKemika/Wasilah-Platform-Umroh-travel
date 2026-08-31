@@ -79,13 +79,13 @@ export default function PackageBrowser() {
   return (
     <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
       {/* Filter panel */}
-      <aside className="h-fit rounded-2xl border border-linen-border bg-linen-card p-5 lg:sticky lg:top-24">
+      <aside className="h-fit rounded-2xl border border-border bg-card p-5 lg:sticky lg:top-24">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold text-stone-900">Filter</h2>
+          <h2 className="font-semibold text-foreground">Filter</h2>
           {activeFilters > 0 && (
             <button
               onClick={reset}
-              className="text-xs font-medium text-wasilah-700 hover:underline"
+              className="text-xs font-medium text-foreground hover:underline"
             >
               Reset ({activeFilters})
             </button>
@@ -97,7 +97,7 @@ export default function PackageBrowser() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Nama paket / travel / kota"
-            className="w-full rounded-lg border border-linen-border bg-white px-3 py-2 text-sm outline-none focus:border-wasilah-500"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
           />
         </FilterGroup>
 
@@ -117,7 +117,7 @@ export default function PackageBrowser() {
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
-            className="w-full rounded-lg border border-linen-border bg-white px-3 py-2 text-sm outline-none focus:border-wasilah-500"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
           >
             <option value="">Kapan saja</option>
             {monthOptions.map((m) => (
@@ -132,7 +132,7 @@ export default function PackageBrowser() {
           <select
             value={embarkasi}
             onChange={(e) => setEmbarkasi(e.target.value)}
-            className="w-full rounded-lg border border-linen-border bg-white px-3 py-2 text-sm outline-none focus:border-wasilah-500"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
           >
             <option value="">Semua kota</option>
             {embarkasiList.map((c) => (
@@ -151,8 +151,8 @@ export default function PackageBrowser() {
                 onClick={() => setMaxPrice(maxPrice === String(p) ? "" : String(p))}
                 className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
                   maxPrice === String(p)
-                    ? "border-wasilah-600 bg-wasilah-600 text-white"
-                    : "border-linen-border bg-white text-stone-600 hover:border-wasilah-400"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-white text-muted-foreground hover:border-neutral-400"
                 }`}
               >
                 ≤ {compactIDR(p)}
@@ -178,15 +178,15 @@ export default function PackageBrowser() {
       {/* Results */}
       <section>
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-stone-500">
+          <p className="text-sm text-muted-foreground">
             {loading ? "Memuat…" : `${results.length} paket ditemukan`}
           </p>
-          <label className="flex items-center gap-2 text-sm text-stone-600">
+          <label className="flex items-center gap-2 text-sm text-muted-foreground">
             Urutkan
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="rounded-lg border border-linen-border bg-white px-3 py-2 text-sm outline-none focus:border-wasilah-500"
+              className="rounded-lg border border-border bg-white px-3 py-2 text-sm outline-none focus:border-ring"
             >
               <option value="recommended">Rekomendasi</option>
               <option value="price-asc">Harga termurah</option>
@@ -198,13 +198,13 @@ export default function PackageBrowser() {
         </div>
 
         {results.length === 0 && !loading ? (
-          <div className="rounded-2xl border border-dashed border-linen-border bg-linen-card p-10 text-center">
-            <p className="font-medium text-stone-700">
+          <div className="rounded-2xl border border-dashed border-border bg-card p-10 text-center">
+            <p className="font-medium text-foreground">
               Tidak ada paket yang cocok dengan filter Anda.
             </p>
             <button
               onClick={reset}
-              className="mt-3 text-sm font-semibold text-wasilah-700 hover:underline"
+              className="mt-3 text-sm font-semibold text-foreground hover:underline"
             >
               Reset filter
             </button>
@@ -234,7 +234,7 @@ function FilterGroup({
 }) {
   return (
     <div className="mt-5">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">
+      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         {label}
       </p>
       {children}
@@ -252,17 +252,17 @@ function Segmented({
   options: { value: string; label: string }[];
 }) {
   return (
-    <div className="flex overflow-hidden rounded-lg border border-linen-border">
+    <div className="flex overflow-hidden rounded-lg border border-border">
       {options.map((o, i) => (
         <button
           key={o.value}
           onClick={() => onChange(o.value)}
           className={`flex-1 px-2 py-1.5 text-xs font-medium transition ${
-            i > 0 ? "border-l border-linen-border" : ""
+            i > 0 ? "border-l border-border" : ""
           } ${
             value === o.value
-              ? "bg-wasilah-600 text-white"
-              : "bg-white text-stone-600 hover:bg-wasilah-50"
+              ? "bg-primary text-primary-foreground"
+              : "bg-white text-muted-foreground hover:bg-accent"
           }`}
         >
           {o.label}

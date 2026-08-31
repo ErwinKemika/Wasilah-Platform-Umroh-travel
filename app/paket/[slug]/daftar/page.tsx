@@ -20,19 +20,19 @@ export default function DaftarPage({ params }: { params: { slug: string } }) {
     <div className="min-h-screen">
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-6 py-10">
-        <nav className="text-sm text-stone-500">
-          <Link href={`/paket/${pkg.slug}`} className="hover:text-wasilah-700">
+        <nav className="text-sm text-muted-foreground">
+          <Link href={`/paket/${pkg.slug}`} className="hover:text-foreground">
             ← Kembali ke detail paket
           </Link>
         </nav>
-        <h1 className="mt-3 text-2xl font-bold text-stone-900 md:text-3xl">
+        <h1 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
           Pendaftaran Jamaah
         </h1>
-        <p className="mt-1 text-stone-500">
+        <p className="mt-1 text-muted-foreground">
           {pkg.title} · {pkg.travelName}
         </p>
 
-        <Suspense fallback={<p className="mt-8 text-stone-400">Memuat formulir…</p>}>
+        <Suspense fallback={<p className="mt-8 text-muted-foreground">Memuat formulir…</p>}>
           <RegistrationForm pkg={pkg} />
         </Suspense>
       </main>

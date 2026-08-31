@@ -10,7 +10,7 @@ export default function KonfirmasiPage() {
     <div className="min-h-screen">
       <SiteHeader />
       <main className="mx-auto max-w-2xl px-6 py-12">
-        <Suspense fallback={<p className="text-stone-400">Memuat…</p>}>
+        <Suspense fallback={<p className="text-muted-foreground">Memuat…</p>}>
           <ConfirmationView />
         </Suspense>
       </main>
